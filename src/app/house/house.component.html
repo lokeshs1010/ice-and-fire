@@ -1,0 +1,80 @@
+<div class="container head" *ngIf="currentInfo">
+  <div class="row" >
+    <div  class="col col-sm-12 col-md-12  text-center" style="color: lightblue; size:10em ">
+      <h2 style="margin: 10px 5px;" *ngIf="checkData(currentInfo.name)">
+        <b> {{ currentInfo.name }} </b>
+      </h2>
+      <hr style=" border-top: 1px solid white; margin-top: 5px;">
+      <hr>
+    </div>
+    <div class="col-12">
+      <div class="col-12" *ngIf="checkData(currentInfo.region)">
+        <b>Region: </b>{{currentInfo.region}}</div>
+      <div class="col-12" *ngIf="checkData(currentInfo.coatOfArms)">
+        <b>Coat of arms: </b>{{currentInfo.coatOfArms}}</div>
+      <div class="col-12" *ngIf="checkData(currentInfo.words)">
+        <b>Words: </b>{{currentInfo.words}}</div>
+      <div class="col-12" *ngIf="checkData(currentInfo.currentLord)">
+        <b>Current lord: </b>{{currentInfo.currentLord}}</div>
+      <div class="col-12" *ngIf="checkData(currentInfo.heir)">
+        <b>Heir: </b>{{currentInfo.heir}}</div>
+      <div class="col-12" *ngIf="checkData(currentInfo.overlord)">
+        <b>Overlord: </b>{{currentInfo.overlord}}</div>
+      <div class="col-12" *ngIf="checkData(currentInfo.founded)">
+        <b>Founded: </b>{{currentInfo.founded}}</div>
+      <div class="col-12" *ngIf="checkData(currentInfo.founder)">
+        <b>Founder: </b>{{currentInfo.founder}}</div>
+      <div class="col-12" *ngIf="checkData(currentInfo.diedOut)">
+        <b>Died out: </b>{{currentInfo.diedOut}}</div>
+    </div>
+  </div>
+  <hr>
+  </div>
+  <div class="container head" *ngIf="currentInfo">
+    <div class="row"  *ngIf="checkData(currentInfo.titles)">
+      <div class="col-12">
+        <h3>Titles</h3>
+      <hr style=" border-top: 1px solid white; margin-top: 5px;">
+      </div>
+      <span class="col-12 col-sm-6 col-md-4" *ngFor="let title of currentInfo.titles">{{title}}</span>
+    </div>
+    <hr>
+    <div class="row" *ngIf="checkData(currentInfo.seats)">
+      <div class="col-12">
+        <h3>Seats</h3>
+        <hr style=" border-top: 1px solid white; margin-top: 5px;">
+      </div>
+      <span class="col-12 col-sm-6 col-md-4" *ngFor="let seats of currentInfo.seats">{{seats}}</span>
+    </div>
+    <hr>
+    <div class="row" *ngIf="checkData(currentInfo.ancestralWeapons)">
+      <div class="col-12">
+        <h3>Ancestral Weapons</h3>
+        <hr style=" border-top: 1px solid white; margin-top: 5px;">
+      </div>
+      <span class="col-12 col-sm-6 col-md-4" *ngFor="let weapons of currentInfo.ancestralWeapons">{{weapons}}</span>
+    </div>
+    <hr>
+    <div class="row" *ngIf="checkData(currentInfo.cadetBranches)">
+      <div class="col-12">
+        <h3>Cadet Branches</h3>
+        <hr style=" border-top: 1px solid white; margin-top: 5px;">
+      </div>
+      <span class="col-12 col-sm-6 col-md-4" *ngFor="let branch of currentInfo.cadetBranches">{{branch}}</span>
+    </div>
+    <hr>
+    <div class="row" *ngIf="checkData(currentInfo.swornMembers)">
+      <div class="col-12">
+        <h3>Sworn Members</h3>
+        <hr style=" border-top: 1px solid white; margin-top: 5px;">
+      </div>
+      <span class="col-12 col-sm-12 col-md-6" *ngFor="let sworn of currentInfo.swornMembers">{{sworn}}</span>
+    </div>
+  <hr>
+  <div class="row" *ngIf="currentInfo">
+    <div class="col-md-4">
+      <a class="btn btn-warning" (click)="goBack()">Go Back</a>
+    </div>
+  </div>
+</div>
+

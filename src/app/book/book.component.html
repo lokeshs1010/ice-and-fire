@@ -1,0 +1,58 @@
+<div class="container head" *ngIf="currentInfo">
+  <div class="row" >
+
+    <div  class="col col-sm-12 col-md-12  text-center" style="color: lightgreen; size:10em ">
+      <h2 style="margin: 10px 5px;" *ngIf="checkData(currentInfo.name)">
+        <b> {{ currentInfo.name }} </b>
+      </h2>
+      <hr style=" border-top: 1px solid white; margin-top: 5px;">
+      <hr>
+    </div>
+    <div class="col-12">
+      <div class="col-12" *ngIf="checkData(currentInfo.isbn)">
+        <b>ISBN: </b>{{currentInfo.isbn}}</div>
+      <div class="col-12" *ngIf="checkData(currentInfo.numberOfPages)">
+        <b>Number of Pages: </b>{{currentInfo.numberOfPages}}</div>
+      <div class="col-12" *ngIf="checkData(currentInfo.publisher)">
+        <b>Publisher: </b>{{currentInfo.publisher}}</div>
+      <div class="col-12" *ngIf="checkData(currentInfo.country)">
+        <b>Country: </b>{{currentInfo.country}}</div>
+      <div class="col-12" *ngIf="checkData(currentInfo.mediaType)">
+        <b>Media Type: </b>{{currentInfo.mediaType}}</div>
+      <div class="col-12" *ngIf="checkData(currentInfo.released)">
+        <b>Released: </b>{{currentInfo.released | date : "d MMMM yyyy"}}</div>
+    </div>
+  </div>
+  <hr>
+  </div>
+  <div class="container head" *ngIf="currentInfo">
+    <div class="row"  *ngIf="checkData(currentInfo.authors)">
+      <div class="col-12">
+        <h3>Authors</h3>
+      <hr style=" border-top: 1px solid white; margin-top: 5px;">
+      </div>
+      <span class="col-12 col-sm-6 col-md-4" *ngFor="let author of currentInfo.authors">{{author}}</span>
+    </div>
+    <hr>
+    <div class="row" *ngIf="checkData(currentInfo.characters)">
+      <div class="col-12">
+        <h3>Characters</h3>
+        <hr style=" border-top: 1px solid white; margin-top: 5px;">
+      </div>
+      <span class="col-12 col-sm-6 col-md-4" *ngFor="let character of currentInfo.characters">{{character}}</span>
+    </div>
+    <hr>
+    <div class="row" *ngIf="checkData(currentInfo.povCharacters)">
+      <div class="col-12">
+        <h3>Pov Characters</h3>
+        <hr style=" border-top: 1px solid white; margin-top: 5px;">
+      </div>
+      <span class="col-12 col-sm-6 col-md-4" *ngFor="let povCharacter of currentInfo.povCharacters">{{povCharacter}}</span>
+    </div>
+  <hr>
+  <div class="row" *ngIf="currentInfo">
+    <div class="col-md-4">
+      <a class="btn btn-warning" (click)="goBack()">Go Back</a>
+    </div>
+  </div>
+</div>

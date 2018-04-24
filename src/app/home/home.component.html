@@ -1,0 +1,73 @@
+
+<div class="container" style="text-align:center">
+  <div class="row">
+    <div class="col-12">
+      <form #myForm="ngForm">
+        <div class="form-group" style="color: white">
+          <label id="label-set">Filter by Name:</label>
+          <input type="text" name="textVal" [(ngModel)]='search' class="form-control">
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <div class="row"  >
+    <div *ngFor="let info of final|sorting:search" >
+      <div *ngIf="info.url.search('houses')>-1" >
+        <div class="col-12">
+          <h2 style="color: white">House</h2>
+          <div class="card mx-auto" style="width:30vh">
+            <img class="card-img-top" src="../../assets/images/houses.jpg" alt="Card image" style="width:100%">
+            <div class="card-body ">
+              <h4 class="card-title">{{info.name | uppercase}}</h4>
+              <p class="card-text">{{info.region}} </p>
+              <a [routerLink]="['/house', getId(info.url)]" class="btn btn-primary">See Info</a>
+            </div>
+          </div>
+          <br><br><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row" >
+    <div *ngFor="let info of final|sorting:search">
+      <div *ngIf="info.url.search('books')>-1">
+        <div class="col" >
+          <h2 style="color: white">Book</h2>
+          <div class="card mx-auto" style="width:30vh">
+            <img class="card-img-top" src="../../assets/images/books.jpg" alt="Card image" style="width:100%">
+            <div class="card-body ">
+              <h4 class="card-title">{{info.name | uppercase}}</h4>
+              <p class="card-text">{{info.authors}} </p>
+              <a [routerLink]="['/book', getId(info.url)]" class="btn btn-primary">See Info</a>
+            </div>
+          </div>
+          <br><br><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row" >
+    <div *ngFor="let info of final|sorting:search">
+      <div *ngIf="info.url.search('characters')>-1">
+        <div class="col">
+          <h2 style="color: white">Character</h2>
+          <div class="card mx-auto" style="width:30vh">
+            <img class="card-img-top" src="../../assets/images/characters.jpg" alt="Card image" style="width:100%">
+            <div class="card-body ">
+              <h4 class="card-title">{{info.name | uppercase}}</h4>
+              <p class="card-text">{{info.gender}} </p>
+              <a [routerLink]="['/character', getId(info.url)]" class="btn btn-primary">See Info</a>
+            </div>
+          </div>
+          <br><br><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
